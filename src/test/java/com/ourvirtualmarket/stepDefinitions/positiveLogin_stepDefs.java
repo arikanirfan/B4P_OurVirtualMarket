@@ -19,8 +19,8 @@ public class positiveLogin_stepDefs {
         loginPage.login(email,password);
     }
 
-    @Then("Verify that the user is on the home page")
-    public void verify_that_the_user_is_on_the_home_page() {
+    @Then("Verify that the user successfully logged in")
+    public void verify_that_the_user_successfully_logged_in() {
       loginPage.verifyLogin();
     }
 
