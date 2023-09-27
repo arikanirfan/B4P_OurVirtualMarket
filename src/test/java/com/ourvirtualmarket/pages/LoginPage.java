@@ -2,6 +2,7 @@ package com.ourvirtualmarket.pages;
 
 import com.ourvirtualmarket.utilities.BrowserUtils;
 import com.ourvirtualmarket.utilities.Driver;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -38,5 +39,9 @@ public class LoginPage extends BasePage{
     public void waitForElement(By element){
         WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(7));
         wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
+
+    public void verifyLogin(){
+        Assert.assertTrue(logoutButton.getText().contains("Logout"));
     }
 }
