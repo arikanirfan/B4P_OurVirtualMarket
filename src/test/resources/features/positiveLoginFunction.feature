@@ -1,13 +1,6 @@
 Feature: Login with valid credentials
-
-  @positiveLogin
-  Scenario Outline: Positive Login
-    Given The user already logged in by using "<email>" and "<password>"
-    Examples:
-      | email          | password |
-      | miaa@gmail.com | 123456   |
-
-
-
-
+  @wip
+    Scenario: Positive Login
+      When The user logged in by using "miaa@gmail.com" and "123456"
+      Then Verify that the user is on the home page
 
