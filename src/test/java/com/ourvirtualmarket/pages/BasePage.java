@@ -25,6 +25,7 @@ public abstract class BasePage {
 
     @FindBy(linkText = "Register")
     public WebElement branchPageRegisterButton;
+
     @FindBy(xpath = "//input[@class='autosearch-input form-control']")
     public WebElement searchBox;
 
@@ -40,8 +41,6 @@ public abstract class BasePage {
         closePopup.click();
         branchPageRegisterButton.click();
     }
-
-
 
     public void search(String searchText) {
         searchBox.sendKeys(searchText);
