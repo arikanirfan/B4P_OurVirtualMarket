@@ -1,5 +1,7 @@
 package com.ourvirtualmarket.pages;
 
+import com.ourvirtualmarket.utilities.BrowserUtils;
+import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
@@ -21,8 +23,18 @@ public class BasePage {
     @FindBy(xpath = "//a[text()=' Logout ']")
     public WebElement logoutButton;
 
+    @FindBy(xpath = "//input[@class='autosearch-input form-control']")
+    public WebElement searchBox;
+    @FindBy(xpath = "//button[@class='button-search btn btn-default btn-lg']")
+    public WebElement searchBoxButton;
+
     public void loginButtonDirection(){
         closePopup.click();
         mainPageLoginButton.click();
+    }
+
+    public void search(String searchText) {
+        searchBox.sendKeys(searchText);
+        searchBoxButton.click();
     }
 }
