@@ -22,12 +22,20 @@ public class BasePage {
     public WebElement logoutButton;
 
 
+    @FindBy(className = "autosearch-input form-control")
+    public WebElement searchBox;
+
+    @FindBy(className = "button-search btn btn-default btn-lg")
+    public WebElement searchBttn;
 
     public void loginButtonDirection(){
         closePopup.click();
         mainPageLoginButton.click();
     }
 
-
+    public void search(String searchText){
+        searchBox.sendKeys(searchText);
+        searchBttn.click();
+    }
 
 }
