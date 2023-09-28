@@ -7,7 +7,7 @@ Feature: Login with valid credentials
       Then Verify that the user successfully logged in
 
 
-    Scenario: Easy Way Login
+    Scenario: Easy Way To Login
       Given The user is already logged in and on the home page by using "miaa@gmail.com" and "123456"
 
 
