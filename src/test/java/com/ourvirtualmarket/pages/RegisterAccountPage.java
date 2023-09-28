@@ -1,6 +1,7 @@
 package com.ourvirtualmarket.pages;
 
 import com.ourvirtualmarket.utilities.BrowserUtils;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -33,6 +34,9 @@ public class RegisterAccountPage extends BasePage{
     @FindBy(css = "[value='Continue']")
     public WebElement continueButton;
 
+    @FindBy(xpath = "//div[@id='content']/h1")
+    public WebElement  confirmationMessage;
+
 
     public void registerAccountForm(String userFirstName, String userLastName,String userEmail, String userTelephone,String userPassword, String userPasswordConfirm){
         BrowserUtils.clickWithJS(firstName);
@@ -46,9 +50,20 @@ public class RegisterAccountPage extends BasePage{
         //subScribeYesButton.click();
         BrowserUtils.clickWithJS(privacyPolicyCheckbox);
         //privacyPolicyCheckbox.click();
+
+    }
+    public void clickContinueButton(){
         BrowserUtils.clickWithJS(continueButton);
         //continueButton.click();
     }
+
+    public void verifyConfirmationMessage(){
+        String expected="Your Account Has Been Created!";
+        String actual=confirmationMessage.getText();
+        Assert.assertEquals(expected,actual);
+    }
+
+
 
 
 

@@ -1,18 +1,20 @@
+@wip
 Feature: Register Functionality
 
-  @wip
+  Background:  Given The user is on the homepage
+
+
   Scenario: Check if the register link is present
-    Given I am on the homepage
-    Then I should see a register link
+    Then The user should see a register link
+
+
+  Scenario:User goes to the Register page
+    When The user click the registration link
+    Then The user should be on the registration page
+
 
   Scenario: Registering a new user
-    Given I am on the homepage
-    When I click the registration link
-    Then I should be on the registration page
-
-
-  Scenario: Registering a new user
-    Given I am on the registration page
-    When I enter my credentials
-    And I click the Continue button
-    Then I should see a confirmation message
+    When The user click the registration link
+    And The user enter  credentials
+    And The user click the Continue button
+    Then The user should see a confirmation message
