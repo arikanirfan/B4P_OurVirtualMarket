@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class BasePage {
+public abstract class BasePage {
 
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
@@ -25,6 +25,7 @@ public class BasePage {
 
     @FindBy(xpath = "//input[@class='autosearch-input form-control']")
     public WebElement searchBox;
+
     @FindBy(xpath = "//button[@class='button-search btn btn-default btn-lg']")
     public WebElement searchBoxButton;
 
