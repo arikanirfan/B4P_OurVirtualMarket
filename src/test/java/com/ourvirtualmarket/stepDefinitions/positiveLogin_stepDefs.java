@@ -13,8 +13,8 @@ public class positiveLogin_stepDefs {
     BasePage basePage= new BasePage();
 
 
-    @When("The user logged in by using {string} and {string}")
-    public void The_user_logged_in_by_using_and(String email, String password) {
+    @When("The user logged in with {string} and {string}")
+    public void The_user_logged_in_with(String email, String password) {
         loginPage.login(email,password);
     }
 
@@ -24,8 +24,8 @@ public class positiveLogin_stepDefs {
     }
 
 
-    @Given("The user is already logged in and on the home page by using {string} and {string}")
-    public void the_user_is_already_logged_in_and_on_the_home_page_by_using_and(String email, String password) {
+    @Given("User already logged in with {string} and {string}")
+    public void User_already_logged_in_with(String email, String password) {
         Driver.get().get(ConfigurationReader.get("url"));
         basePage.loginButtonDirection();
         loginPage.login(email,password);
