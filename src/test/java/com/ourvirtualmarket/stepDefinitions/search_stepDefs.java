@@ -9,7 +9,8 @@ public class search_stepDefs {
 
     @When("The user search {string}")
     public void the_user_search(String string) throws InterruptedException {
-      // Thread.sleep(2000);
+       Thread.sleep(2000);
         basePage.search("TV");
+        Thread.sleep(2000);
     }
 }
