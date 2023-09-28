@@ -21,12 +21,22 @@ public class BasePage {
     @FindBy(xpath = "//a[text()=' Logout ']")
     public WebElement logoutButton;
 
+    @FindBy(linkText = "Register")
+    public WebElement branchPageRegisterButton;
 
 
     public void loginButtonDirection(){
         closePopup.click();
         mainPageLoginButton.click();
     }
+
+    public void registerButtonDirection(){
+        closePopup.click();
+        branchPageRegisterButton.click();
+    }
+
+
+
 
 
 
