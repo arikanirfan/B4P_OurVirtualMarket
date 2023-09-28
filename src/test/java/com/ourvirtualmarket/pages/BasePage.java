@@ -43,9 +43,6 @@ public abstract class BasePage {
 
 
 
-
-
-
     public void search(String searchText) {
         searchBox.sendKeys(searchText);
         searchBoxButton.click();
