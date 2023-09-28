@@ -10,8 +10,6 @@ import io.cucumber.java.en.When;
 
 public class positiveLogin_stepDefs {
     LoginPage loginPage= new LoginPage();
-    BasePage basePage= new BasePage();
-
 
     @When("The user logged in with {string} and {string}")
     public void The_user_logged_in_with(String email, String password) {
@@ -27,7 +25,7 @@ public class positiveLogin_stepDefs {
     @Given("User already logged in with {string} and {string}")
     public void User_already_logged_in_with(String email, String password) {
         Driver.get().get(ConfigurationReader.get("url"));
-        basePage.loginButtonDirection();
+        loginPage.loginButtonDirection();
         loginPage.login(email,password);
         loginPage.verifyLogin();
     }

@@ -11,13 +11,13 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class negativeLogin_stepDefs {
-    BasePage basePage = new BasePage();
+
     LoginPage loginPage = new LoginPage();
 
     @Given("The user is on the login page")
     public void the_user_is_on_the_login_page() {
         Driver.get().get(ConfigurationReader.get("url"));
-        basePage.loginButtonDirection();
+        loginPage.loginButtonDirection();
     }
     @When("The user enter {string} and {string} and click the login button")
     public void the_user_enter_and_and_click_the_login_button(String username, String password){
