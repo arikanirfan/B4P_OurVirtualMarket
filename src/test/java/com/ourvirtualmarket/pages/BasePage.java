@@ -2,6 +2,9 @@ package com.ourvirtualmarket.pages;
 
 import com.ourvirtualmarket.utilities.BrowserUtils;
 import com.ourvirtualmarket.utilities.ConfigurationReader;
+import com.ourvirtualmarket.utilities.BrowserUtils;
+import com.ourvirtualmarket.utilities.BrowserUtils;
+import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;

@@ -6,7 +6,7 @@ import com.ourvirtualmarket.utilities.BrowserUtils;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class search_stepDefs {
+public class search_stepDefs{
 
     LoginPage loginPage = new LoginPage();
 

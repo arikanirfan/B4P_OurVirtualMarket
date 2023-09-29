@@ -8,7 +8,7 @@ Feature: Login with invalid credentials
     Examples:
       | email               | password | message                                               |
       | mi@gmail.com        | A%123456 | Warning: No match for E-Mail Address and/or Password. |
-      | hilayse@hotmail.com | %123456  | Warning: No match for E-Mail Address and/or Password.|
+      | hilayse@hotmail.com | %123456  | Warning: No match for E-Mail Address and/or Password. |
       | hilays@hotmail.com  | %123456  | Warning: No match for E-Mail Address and/or Password. |
       |                     |          | Warning: No match for E-Mail Address and/or Password. |
       |                     | A%123456 | Warning: No match for E-Mail Address and/or Password. |
