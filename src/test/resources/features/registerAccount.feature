@@ -11,7 +11,7 @@ Feature: Register Functionality
 
   Scenario: Click the register link
     Given The user is on the homepage
-    When The user click the register link
+    When The user click the registration link
     Then The user should be on the registration page
 
 

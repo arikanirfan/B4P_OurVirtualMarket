@@ -6,6 +6,8 @@ import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import static org.junit.Assert.assertTrue;
+
 public class RegisterAccountPage extends BasePage{
 
     @FindBy(id= "input-firstname")
@@ -36,7 +38,22 @@ public class RegisterAccountPage extends BasePage{
     public WebElement continueButton;
 
     @FindBy(xpath = "//div[@id='content']/h1")
-    public WebElement  confirmationMessage;
+    public WebElement  successMessage;
+
+    @FindBy(xpath = "(//div[@class='text-danger'])[1]")
+    public WebElement  firstNameMessage;
+
+    @FindBy(xpath = "(//div[@class='text-danger'])[2]")
+    public WebElement   lastNameMessage;
+
+    @FindBy(xpath = "(//div[@class='text-danger'])[3]")
+    public WebElement emailMessage ;
+
+    @FindBy(xpath = "(//div[@class='text-danger'])[4]")
+    public WebElement  telephoneMessage;
+
+    @FindBy(xpath = "(//div[@class='text-danger'])[5]")
+    public WebElement  passwordMessage;
 
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     public WebElement  successContinue;
@@ -50,9 +67,9 @@ public class RegisterAccountPage extends BasePage{
         telephone.sendKeys(userTelephone);
         password.sendKeys(userPassword);
         passwordConfirm.sendKeys(userPasswordConfirm);
-        BrowserUtils.clickWithJS(subScribeYesButton);
+        //BrowserUtils.clickWithJS(subScribeYesButton);
         //subScribeYesButton.click();
-        BrowserUtils.clickWithJS(privacyPolicyCheckbox);
+       // BrowserUtils.clickWithJS(privacyPolicyCheckbox);
         //privacyPolicyCheckbox.click();
 
     }
@@ -65,7 +82,18 @@ public class RegisterAccountPage extends BasePage{
         //String expected="Your Account Has Been Created!";
         //String actual= Driver.get().confirmationMessage.getText();
         //Assert.assertEquals(expected,actual);
-        Assert.assertTrue(confirmationMessage.getText().contains("Has Been Created!"));
+        String messageText =successMessage.getText();
+        Assert.assertEquals("Your Account Has Been Created!",messageText);
+
+    }
+
+    public void warningMessages(){
+        assertTrue(firstNameMessage.isDisplayed());
+        assertTrue(lastNameMessage.isDisplayed());
+        assertTrue(emailMessage.isDisplayed());
+        assertTrue(telephoneMessage.isDisplayed());
+        assertTrue(passwordMessage.isDisplayed());
+
 
     }
 

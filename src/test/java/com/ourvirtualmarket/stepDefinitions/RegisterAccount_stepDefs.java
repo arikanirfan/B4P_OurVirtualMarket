@@ -11,6 +11,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class RegisterAccount_stepDefs {
@@ -18,12 +20,14 @@ public class RegisterAccount_stepDefs {
 
     @Given("The user is on the homepage")
     public void The_user_is_on_the_homepage() {
+
         Driver.get().get(ConfigurationReader.get("url"));
     }
 
-    @When("The user click the register link")
-    public void the_user_click_the_register_link() {
 
+    @When("The user click the registration link")
+    public void the_user_click_the_registration_link() {
+        registerAccountPage.registerButtonDirection();
     }
 
     @Then("The user should see a register link")
@@ -31,11 +35,6 @@ public class RegisterAccount_stepDefs {
         WebElement registerLink = registerAccountPage.branchPageRegisterButton;
         assertTrue(registerLink.isDisplayed());
 
-    }
-
-    @When("The user click the registration link")
-    public void the_user_click_the_registration_link() {
-        registerAccountPage.registerButtonDirection();
     }
 
 
@@ -47,7 +46,7 @@ public class RegisterAccount_stepDefs {
 
     @Given("The user is on the registration page")
     public void the_user_is_on_the_registration_page() {
-
+        Driver.get().get("https://ourvirtualmarket.com/index.php?route=account/register");
     }
 
 
@@ -59,8 +58,9 @@ public class RegisterAccount_stepDefs {
 
 
     @When("The user accept the Privacy Policy")
-    public void the_user_accept_the_privacy_policy() {
-
+    public void the_user_accept_the_privacy_policy() throws InterruptedException {
+     registerAccountPage.privacyPolicyCheckbox.click();
+        Thread.sleep(5);
     }
 
     @When("The user click the Continue button")
@@ -74,26 +74,24 @@ public class RegisterAccount_stepDefs {
 
     @Then("The user should see a success message")
     public void the_user_should_see_a_success_message() throws InterruptedException {
-        //registerAccountPage.verifyConfirmationMessage();
-        // Assert.assertTrue(registerAccountPage.confirmationMessage.getText().contains("Has Been Created!"));
-        Thread.sleep(5);
-
-        String currentUrl = Driver.get().getCurrentUrl();
-        assertTrue(currentUrl.contains("success"));
+       // String registerTitle = Driver.get().getTitle();
+        //Assert.assertTrue(registerTitle.contains("success"));
+        assertTrue(registerAccountPage.successMessage.isDisplayed());
 
     }
 
 
     @When("The user click the Continue button without filling necessary fields")
     public void the_user_click_the_continue_button_without_filling_necessary_fields() {
-
+        registerAccountPage.clickContinueButton();
     }
 
 
     @Then("The user should see warning messages")
     public void the_user_should_see_warning_messages() {
-
-
+       // String currentUrl = Driver.get().getCurrentUrl();
+        //assertEquals(currentUrl,"Your Account Has Been Created!");
+        registerAccountPage.warningMessages();
     }
 
     @When("The user do not accept the Privacy Policy")
