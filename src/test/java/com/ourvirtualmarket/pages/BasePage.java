@@ -5,6 +5,7 @@ import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -13,6 +14,8 @@ public abstract class BasePage {
     public BasePage() {
         PageFactory.initElements(Driver.get(), this);
     }
+
+    Actions actions;
 
     @FindBy(className = "popup-close")
     public WebElement closePopup;
@@ -29,6 +32,13 @@ public abstract class BasePage {
     @FindBy(xpath = "//button[@class='button-search btn btn-default btn-lg']")
     public WebElement searchBoxButton;
 
+    @FindBy(css = "[id='cart']")
+    public WebElement myCartButton;
+
+    @FindBy(xpath = "(//a[text()=' View Cart'])[1]")
+    public WebElement viewCartButtonOnHomePage;
+
+
     public void loginButtonDirection(){
         closePopup.click();
         mainPageLoginButton.click();
@@ -38,4 +48,15 @@ public abstract class BasePage {
         searchBox.sendKeys(searchText);
         searchBoxButton.click();
     }
+
+    public void hoverToMyCartButton(){
+        actions= new Actions(Driver.get());
+        BrowserUtils.hover(myCartButton);
+    }
+
+    public void clickToViewCartButton(){
+        BrowserUtils.clickWithJS(viewCartButtonOnHomePage);
+    }
+
+
 }

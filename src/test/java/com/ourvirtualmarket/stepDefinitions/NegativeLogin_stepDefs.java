@@ -1,6 +1,5 @@
 package com.ourvirtualmarket.stepDefinitions;
 
-import com.ourvirtualmarket.pages.BasePage;
 import com.ourvirtualmarket.pages.LoginPage;
 import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
@@ -10,7 +9,7 @@ import io.cucumber.java.en.When;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 
-public class negativeLogin_stepDefs {
+public class NegativeLogin_stepDefs {
 
     LoginPage loginPage = new LoginPage();
 
@@ -19,6 +18,7 @@ public class negativeLogin_stepDefs {
         Driver.get().get(ConfigurationReader.get("url"));
         loginPage.loginButtonDirection();
     }
+
     @When("The user enter {string} and {string} and click the login button")
     public void the_user_enter_and_and_click_the_login_button(String username, String password){
         loginPage.waitForElement(By.id("email"));

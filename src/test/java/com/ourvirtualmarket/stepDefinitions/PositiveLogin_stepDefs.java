@@ -1,6 +1,5 @@
 package com.ourvirtualmarket.stepDefinitions;
 
-import com.ourvirtualmarket.pages.BasePage;
 import com.ourvirtualmarket.pages.LoginPage;
 import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
@@ -8,7 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class positiveLogin_stepDefs {
+public class PositiveLogin_stepDefs {
     LoginPage loginPage= new LoginPage();
 
     @When("The user logged in with {string} and {string}")
