@@ -7,6 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.awt.*;
+
 public class SearchPage extends BasePage {
 
     @FindBy(css = "#input-search")
@@ -66,9 +68,14 @@ public class SearchPage extends BasePage {
         Assert.assertTrue(addToCartButton.isDisplayed());
     }
 
-    public void inputQuantityOfProduct(Integer quantity){
+    public void inputQuantityOfProduct(String quantity){
+        BrowserUtils.clickWithJS(quantityInputBox);
+        BrowserUtils.waitFor(1);
         quantityInputBox.clear();
-        quantityInputBox.sendKeys(String.valueOf(quantity));
+        BrowserUtils.waitFor(1);
+        quantityInputBox.sendKeys(quantity);
+        addToCartButton.click();
+        closePopUpAfterClickAddToCartButton();
     }
 
 

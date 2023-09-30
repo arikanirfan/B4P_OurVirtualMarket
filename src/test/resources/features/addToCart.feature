@@ -40,9 +40,9 @@ Feature: Add To Cart Functionality
   @quantityProduct
   Scenario Outline: Adding Multiple Quantities of a Product to the Cart
     When The user selects "<PRODUCTNAME>" product
-    When The user adds <QUANTITY> units of the product to the cart
+    When The user adds "<QUANTITY>" units of the product to the cart
     And The user adds "<PRODUCTNAME>" to cart
-    Then The user should see <QUANTITY> units of "<PRODUCTNAME>" product in the cart
+    Then The user should see "<QUANTITY>" units of "<PRODUCTNAME>" product in the cart
 
     Examples:
       | PRODUCTNAME         | QUANTITY |

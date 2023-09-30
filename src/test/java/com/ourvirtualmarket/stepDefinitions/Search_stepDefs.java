@@ -52,8 +52,8 @@ public class Search_stepDefs {
         searchPage.clickProduct(productName);
     }
 
-    @When("The user adds {int} units of the product to the cart")
-    public void the_user_adds_units_of_the_product_to_the_cart(Integer quantity) {
+    @When("The user adds {string} units of the product to the cart")
+    public void the_user_adds_units_of_the_product_to_the_cart(String quantity) {
      searchPage.inputQuantityOfProduct(quantity);
     }
 
