@@ -2,11 +2,7 @@ package com.ourvirtualmarket.stepDefinitions;
 
 import com.ourvirtualmarket.pages.SearchPage;
 import com.ourvirtualmarket.pages.ShoppingCartPage;
-import com.ourvirtualmarket.utilities.Driver;
 import io.cucumber.java.en.Then;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
 public class ShoppingCart_stepDefs {
 
@@ -18,11 +14,6 @@ public class ShoppingCart_stepDefs {
      searchPage.hoverToMyCartButton();
      searchPage.clickToViewCartButton();
      shoppingCartPage.verifyProductAddedToCart(productName);
-
-
-    shoppingCartPage.checkoutButton.click();
-        WebElement element = Driver.get().findElement(By.xpath("(//div[@class='radio'])[5]//input"));
-        System.out.println("element.getAttribute(\"value\") = " + element.getAttribute("value"));
     }
 
     @Then("The user should see {string} units of {string} product in the cart")
