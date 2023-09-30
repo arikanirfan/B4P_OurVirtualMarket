@@ -9,6 +9,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class ShoppingCartPage extends BasePage{
 
+
+    @FindBy(xpath = "//a[@class='btn btn-primary']")
+    public WebElement checkoutButton;
+
+
+
     public void verifyProductAddedToCart(String productName){
         WebElement addedProductInTheShoppingCart = Driver.get().findElement(By.xpath("//td[contains(text()," +
                 "'"+productName+"')]"));
