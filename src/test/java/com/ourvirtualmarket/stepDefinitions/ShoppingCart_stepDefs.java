@@ -1,8 +1,10 @@
 package com.ourvirtualmarket.stepDefinitions;
 
+import com.ourvirtualmarket.pages.CheckoutPage;
 import com.ourvirtualmarket.pages.SearchPage;
 import com.ourvirtualmarket.pages.ShoppingCartPage;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ShoppingCart_stepDefs {
 
@@ -16,6 +18,11 @@ public class ShoppingCart_stepDefs {
      shoppingCartPage.verifyProductAddedToCart(productName);
     }
 
+    @When("The user navigates to Shopping Cart page")
+    public void the_user_navigates_to_shopping_cart_page() {
+        searchPage.hoverToMyCartButton();
+        searchPage.clickToViewCartButton();
+    }
     @Then("The user should see {string} units of {string} product in the cart")
     public void the_user_should_see_units_of_product_in_the_cart(String quantity, String productName) {
        shoppingCartPage.hoverToMyCartButton();
@@ -27,5 +34,18 @@ public class ShoppingCart_stepDefs {
 
 
 
+    @Then("The user should see {string} on the page previously added")
+    public void the_user_should_see_on_the_page_previously_added(String productName) {
+        shoppingCartPage.verifyProductAddedToCart(productName);
+    }
 
+    @Then("The user should see the {string} button on the Shopping cart page")
+    public void the_user_should_see_the_button_on_the_shopping_cart_page(String buttonName) {
+        shoppingCartPage.verifyCheckoutButton(buttonName);
+    }
+
+    @When("The user clicks on the CHECKOUT button")
+    public void the_user_clicks_on_the_checkout_button() {
+        shoppingCartPage.clickTheCheckoutBtn();
+    }
 }

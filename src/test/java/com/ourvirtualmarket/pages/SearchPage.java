@@ -40,8 +40,8 @@ public class SearchPage extends BasePage {
 
     public void verifySearchedProductName(String searchedProductName) {
         BrowserUtils.waitFor(1);
-        String expectedSearchedProduct = searchResult.getAttribute("value");
-        String actualSearchedProduct = searchedProductName;
+        String actualSearchedProduct = searchResult.getAttribute("value");
+        String expectedSearchedProduct = searchedProductName;
         Assert.assertEquals(expectedSearchedProduct, actualSearchedProduct);
     }
 
