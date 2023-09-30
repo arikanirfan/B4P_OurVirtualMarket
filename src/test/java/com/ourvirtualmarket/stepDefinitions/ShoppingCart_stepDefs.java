@@ -16,6 +16,15 @@ public class ShoppingCart_stepDefs {
      shoppingCartPage.verifyProductAddedToCart(productName);
     }
 
+    @Then("The user should see {int} units of {string} product in the cart")
+    public void the_user_should_see_units_of_product_in_the_cart(Integer quantity, String productName) {
+       shoppingCartPage.hoverToMyCartButton();
+       shoppingCartPage.clickToViewCartButton();
+    }
+
+
+
+
 
 
 }

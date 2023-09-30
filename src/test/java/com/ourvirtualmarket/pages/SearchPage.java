@@ -18,6 +18,16 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//button[@class='close']")
     public WebElement closePopUpAfterAddToCart;
 
+    @FindBy(xpath = "//div[@class='title-product']/./h1")
+    public WebElement productNameInProductDetails;
+
+    @FindBy(xpath = "//span[@id='price-old']")
+    public WebElement productPriceInProductDetails;
+
+    @FindBy(xpath = "//input[@name='quantity']")
+    public WebElement quantityInputBox;
+
+
 
     public void clickProduct(String itemName) {
         WebElement productName = Driver.get().findElement(By.xpath("//div[@class='product-image-container']" +
@@ -38,11 +48,28 @@ public class SearchPage extends BasePage {
     }
 
     public void closePopUpAfterClickAddToCartButton(){
+        BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(closePopUpAfterAddToCart);
     }
 
+    public void verifyProductName(String productName){
+        String actualProductName= productNameInProductDetails.getText();
+        Assert.assertTrue(actualProductName.contains(productName));
+    }
 
+    public void verifyProductPrice(String productPrice){
+        String actualProductPrice=productPriceInProductDetails.getText();
+        Assert.assertEquals(productPrice,actualProductPrice);
+    }
 
+    public void verifyAddToCartButtonIsDisplayed(){
+        Assert.assertTrue(addToCartButton.isDisplayed());
+    }
+
+    public void inputQuantityOfProduct(Integer quantity){
+        quantityInputBox.clear();
+        quantityInputBox.sendKeys(String.valueOf(quantity));
+    }
 
 
 

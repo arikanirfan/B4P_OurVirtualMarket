@@ -3,8 +3,10 @@ package com.ourvirtualmarket.stepDefinitions;
 import com.ourvirtualmarket.pages.LoginPage;
 import com.ourvirtualmarket.pages.SearchPage;
 import com.ourvirtualmarket.utilities.BrowserUtils;
+import com.ourvirtualmarket.utilities.Driver;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 
 public class Search_stepDefs {
 
@@ -31,6 +33,29 @@ public class Search_stepDefs {
         searchPage.closePopUpAfterClickAddToCartButton();
     }
 
+    @When("The user navigates to back page")
+    public void the_user_navigates_to_back_page() {
+        Driver.get().navigate().back();
+    }
+
+
+
+    @Then("Verify that there is {string} name, {string} price and add to cart button")
+    public void verify_that_there_is_name_price_and_add_to_cart_button(String productName, String productPrice) {
+       searchPage.verifyProductName(productName);
+       searchPage.verifyProductPrice(productPrice);
+       searchPage.verifyAddToCartButtonIsDisplayed();
+    }
+
+    @When("The user selects {string} product")
+    public void the_user_selects_product(String productName) {
+        searchPage.clickProduct(productName);
+    }
+
+    @When("The user adds {int} units of the product to the cart")
+    public void the_user_adds_units_of_the_product_to_the_cart(Integer quantity) {
+     searchPage.inputQuantityOfProduct(quantity);
+    }
 
 
 }
