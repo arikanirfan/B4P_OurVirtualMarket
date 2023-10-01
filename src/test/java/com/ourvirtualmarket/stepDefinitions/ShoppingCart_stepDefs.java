@@ -1,6 +1,5 @@
 package com.ourvirtualmarket.stepDefinitions;
 
-import com.ourvirtualmarket.pages.CheckoutPage;
 import com.ourvirtualmarket.pages.SearchPage;
 import com.ourvirtualmarket.pages.ShoppingCartPage;
 import io.cucumber.java.en.Then;
@@ -23,16 +22,6 @@ public class ShoppingCart_stepDefs {
         searchPage.hoverToMyCartButton();
         searchPage.clickToViewCartButton();
     }
-    @Then("The user should see {string} units of {string} product in the cart")
-    public void the_user_should_see_units_of_product_in_the_cart(String quantity, String productName) {
-       shoppingCartPage.hoverToMyCartButton();
-       shoppingCartPage.clickToViewCartButton();
-       shoppingCartPage.verifyProductNameAndQuantityInTheShoppingCart(productName,quantity);
-    }
-
-
-
-
 
     @Then("The user should see {string} on the page previously added")
     public void the_user_should_see_on_the_page_previously_added(String productName) {

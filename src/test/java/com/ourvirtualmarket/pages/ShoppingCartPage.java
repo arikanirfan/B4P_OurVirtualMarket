@@ -32,15 +32,4 @@ public class ShoppingCartPage extends BasePage{
        BrowserUtils.waitFor(2);
    }
 
-//    //td[contains(text(),'Hisense 50A7100FTUK')]/..//input[@value='8']
-
-    public void verifyProductNameAndQuantityInTheShoppingCart(String productName, String quantity){
-        WebElement nameAndPriceInTheShoppingCart = Driver.get().findElement(By.xpath("//td[contains(text()," +
-                "'" + productName + "')]/..//input[@value='" + quantity + "']"));
-        String actualQuantity=nameAndPriceInTheShoppingCart.getAttribute("value");
-        Assert.assertEquals(quantity,actualQuantity);
-        System.out.println("actualQuantity = " + actualQuantity);
-    }
-
-
 }

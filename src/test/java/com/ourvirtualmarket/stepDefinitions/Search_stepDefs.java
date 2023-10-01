@@ -57,5 +57,10 @@ public class Search_stepDefs {
      searchPage.inputQuantityOfProduct(quantity);
     }
 
+    @Then("The user should see successfully added {string}")
+    public void the_user_should_see_successfully_added(String message) {
+      searchPage.verifyProductAddedSuccessfullyMessage(message);
+    }
+
 
 }

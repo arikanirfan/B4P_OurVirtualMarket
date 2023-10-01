@@ -4,6 +4,7 @@ import com.ourvirtualmarket.utilities.BrowserUtils;
 import com.ourvirtualmarket.utilities.Driver;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -29,6 +30,8 @@ public class SearchPage extends BasePage {
     @FindBy(xpath = "//input[@name='quantity']")
     public WebElement quantityInputBox;
 
+    @FindBy(xpath = "//h4[@class='modal-title']")
+    public WebElement successfullyAddedMessage;
 
 
     public void clickProduct(String itemName) {
@@ -45,39 +48,44 @@ public class SearchPage extends BasePage {
         Assert.assertEquals(expectedSearchedProduct, actualSearchedProduct);
     }
 
-    public void AddToCart(){
+    public void AddToCart() {
         BrowserUtils.clickWithJS(addToCartButton);
     }
 
-    public void closePopUpAfterClickAddToCartButton(){
+    public void closePopUpAfterClickAddToCartButton() {
         BrowserUtils.waitFor(2);
         BrowserUtils.clickWithJS(closePopUpAfterAddToCart);
     }
 
-    public void verifyProductName(String productName){
-        String actualProductName= productNameInProductDetails.getText();
+    public void verifyProductName(String productName) {
+        String actualProductName = productNameInProductDetails.getText();
         Assert.assertTrue(actualProductName.contains(productName));
     }
 
-    public void verifyProductPrice(String productPrice){
-        String actualProductPrice=productPriceInProductDetails.getText();
-        Assert.assertEquals(productPrice,actualProductPrice);
+    public void verifyProductPrice(String productPrice) {
+        String actualProductPrice = productPriceInProductDetails.getText();
+        Assert.assertEquals(productPrice, actualProductPrice);
     }
 
-    public void verifyAddToCartButtonIsDisplayed(){
+    public void verifyAddToCartButtonIsDisplayed() {
         Assert.assertTrue(addToCartButton.isDisplayed());
     }
 
-    public void inputQuantityOfProduct(String quantity){
+    public void inputQuantityOfProduct(String quantity) {
         BrowserUtils.clickWithJS(quantityInputBox);
         BrowserUtils.waitFor(1);
-        quantityInputBox.clear();
+        ((JavascriptExecutor) Driver.get()).executeScript("arguments[0].value = '';", quantityInputBox);
         BrowserUtils.waitFor(1);
         quantityInputBox.sendKeys(quantity);
         addToCartButton.click();
-        closePopUpAfterClickAddToCartButton();
     }
 
+
+    public void verifyProductAddedSuccessfullyMessage(String message) {
+        BrowserUtils.waitForVisibility(successfullyAddedMessage,3);
+        String actualSuccessfullyAddedToCartMessage = successfullyAddedMessage.getText();
+        Assert.assertEquals(message, actualSuccessfullyAddedToCartMessage);
+    }
 
 
 }
