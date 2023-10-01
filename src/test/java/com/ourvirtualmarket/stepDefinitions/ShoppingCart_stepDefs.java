@@ -1,6 +1,5 @@
 package com.ourvirtualmarket.stepDefinitions;
 
-import com.ourvirtualmarket.pages.CheckoutPage;
 import com.ourvirtualmarket.pages.SearchPage;
 import com.ourvirtualmarket.pages.ShoppingCartPage;
 import io.cucumber.java.en.Then;

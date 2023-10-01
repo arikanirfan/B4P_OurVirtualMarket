@@ -59,6 +59,7 @@ public abstract class BasePage {
 
     public void hoverToMyCartButton(){
         actions= new Actions(Driver.get());
+        BrowserUtils.scrollToElement(myCartButton);
         BrowserUtils.hover(myCartButton);
     }
 

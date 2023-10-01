@@ -21,7 +21,6 @@ public class RegisterAccount_stepDefs {
     LoginPage loginPage=new LoginPage();
     @Given("The user is on the homepage")
     public void The_user_is_on_the_homepage() {
-
         Driver.get().get(ConfigurationReader.get("url"));
     }
 

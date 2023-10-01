@@ -32,5 +32,4 @@ public class ShoppingCartPage extends BasePage{
        BrowserUtils.waitFor(2);
    }
 
-
 }
