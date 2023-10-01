@@ -10,11 +10,6 @@ import io.cucumber.java.en.When;
 public class PositiveLogin_stepDefs {
     LoginPage loginPage = new LoginPage();
 
-    @Given("The user is on the our virtual market page")
-    public void the_user_is_on_the_our_virtual_market_page() {
-      Driver.get().get(ConfigurationReader.get("url"));
-      loginPage.closePopup.click();
-    }
 
     @When("The user logged in with {string} and {string}")
     public void The_user_logged_in_with(String email, String password) {
@@ -35,4 +30,8 @@ public class PositiveLogin_stepDefs {
         loginPage.verifyLogin();
     }
 
+    @When("The user closes the popUp")
+    public void the_user_closes_the_pop_up() {
+        loginPage.closePopup.click();
+    }
 }

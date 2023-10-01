@@ -54,7 +54,8 @@ Feature: Add To Cart Functionality
 
     @withoutLogin
   Scenario: Add To Cart Without Login
-    Given The user is on the our virtual market page
+    Given The user is on the homepage
+    When The user closes the popUp
     When The user search "hisense"
     And The user adds "Hisense 55U8GQTUK" to cart
     Then Verify that "Hisense 55U8GQTUK" has been added to cart
