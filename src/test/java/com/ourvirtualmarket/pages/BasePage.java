@@ -26,6 +26,9 @@ public abstract class BasePage {
     @FindBy(xpath = "//a[text()=' Logout ']")
     public WebElement logoutButton;
 
+    @FindBy(xpath ="(//a[@href='https://ourvirtualmarket.com/index.php?route=account/register'])[2]")
+    public WebElement branchPageRegisterButton;
+
     @FindBy(xpath = "//input[@class='autosearch-input form-control']")
     public WebElement searchBox;
 
@@ -42,6 +45,11 @@ public abstract class BasePage {
     public void loginButtonDirection(){
         closePopup.click();
         mainPageLoginButton.click();
+    }
+
+    public void registerButtonDirection(){
+        closePopup.click();
+        branchPageRegisterButton.click();
     }
 
     public void search(String searchText) {
