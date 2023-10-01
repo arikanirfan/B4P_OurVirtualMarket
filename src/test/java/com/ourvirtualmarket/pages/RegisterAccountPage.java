@@ -139,18 +139,4 @@ public class RegisterAccountPage extends BasePage{
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

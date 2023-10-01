@@ -1,19 +1,14 @@
 @wip
 Feature: Register Functionality
 
-
-
   Scenario: Check for the presence of the registration link
     Given The user is on the homepage
     Then The user should see a register link
-
-
 
   Scenario: Click the register link
     Given The user is on the homepage
     When The user click the registration link
     Then The user should be on the registration page
-
 
   Scenario: Fill in all necessary fields to register successfully
     Given The user is on the registration page
@@ -21,7 +16,6 @@ Feature: Register Functionality
     And The user accept the Privacy Policy
     And The user click the Continue button
     Then The user should see a success message
-
 
   Scenario: Check for warning messages when necessary fields are not filled(NEGATİVE)
     Given The user is on the registration page
