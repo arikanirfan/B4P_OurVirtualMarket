@@ -1,6 +1,7 @@
 package com.ourvirtualmarket.stepDefinitions;
 
 import com.ourvirtualmarket.pages.BasePage;
+import com.ourvirtualmarket.pages.LoginPage;
 import com.ourvirtualmarket.pages.RegisterAccountPage;
 import com.ourvirtualmarket.utilities.ConfigurationReader;
 import com.ourvirtualmarket.utilities.Driver;
@@ -17,7 +18,7 @@ import static org.junit.Assert.assertTrue;
 
 public class RegisterAccount_stepDefs {
     RegisterAccountPage registerAccountPage=new RegisterAccountPage();
-
+    LoginPage loginPage=new LoginPage();
     @Given("The user is on the homepage")
     public void The_user_is_on_the_homepage() {
 
@@ -102,72 +103,74 @@ public class RegisterAccount_stepDefs {
 
     @Then("The user should see a warning message about Privacy Policy acceptance")
     public void the_user_should_see_a_warning_message_about_privacy_policy_acceptance() {
-
+        registerAccountPage.warningPrivacyPolicy();
     }
 
 
     @When("The user enter a First Name that is too long")
     public void the_user_enter_a_first_name_that_is_too_long() {
-
+       registerAccountPage.registerAccountForm("abuziddingiderdönergeloglugeldedöneli","QAEMLY","emly@gmail.com","05550102030","emily123456","emily123456");
+        registerAccountPage.validateFirstNameLength(1,32);
     }
     @Then("The user should see a warning message about First Name length")
     public void the_user_should_see_a_warning_message_about_first_name_length() {
-
+        assertTrue(registerAccountPage.firstNameMessage.isDisplayed());
     }
 
 
     @When("The user enter a Last Name that is too long")
-    public void the_user_enter_a_last_name_that_is_too_long() {
-
+    public void the_user_enter_a_last_name_that_is_too_long() throws InterruptedException {
+        registerAccountPage.registerAccountForm("EMY","abuziddingiderdönergeloglugeldedönelim","eee@gmail.com","05550102030","emily123457","emily123457");
+        registerAccountPage.validateLastNameLength(1,32);
+        Thread.sleep(5);
     }
 
 
     @Then("The user should see a warning message about Last Name length")
     public void the_user_should_see_a_warning_message_about_last_name_length() {
-
+       registerAccountPage.warningLastNameMessage();
+        // assertTrue(registerAccountPage.invalidLastNameMessage.isDisplayed());
     }
 
 
     @When("The user enter an invalid Email Address")
     public void the_user_enter_an_invalid_email_address() {
+        registerAccountPage.registerAccountForm("EMY","adcvg","","05550102030","emily123457","emily123457");
 
     }
 
 
     @Then("The user should see a warning message about Email Address format")
     public void the_user_should_see_a_warning_message_about_email_address_format() {
-
+    registerAccountPage.invalidMessage.isDisplayed();
     }
 
 
 
     @When("The user enter a Telephone Number that is too long")
     public void the_user_enter_a_telephone_number_that_is_too_long() {
-
+        registerAccountPage.registerAccountForm("EMY","adcvg","emily@gmail.com","1","emily123457","emily123457");
+        registerAccountPage.validateTelephoneNumberLength(3,32);
     }
 
 
     @Then("The user should see a warning message about Telephone Number length")
     public void the_user_should_see_a_warning_message_about_telephone_number_length() {
-
-    }
-
-
-
-    @Given("The user am on the registration page")
-    public void the_user_am_on_the_registration_page() {
+        registerAccountPage.invalidMessage.isDisplayed();
 
     }
 
 
     @When("The user enter a Password that is too short")
     public void the_user_enter_a_password_that_is_too_short() {
-
+        registerAccountPage.registerAccountForm("EMY","SDET","emily@gmail.com","05555461213","","");
+        registerAccountPage.validateTelephoneNumberLength(4,20);
     }
 
 
     @Then("The user should see a warning message about Password length")
     public void the_user_should_see_a_warning_message_about_password_length() {
+        registerAccountPage.invalidMessage.isDisplayed();
 
     }
 
