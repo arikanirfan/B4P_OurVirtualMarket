@@ -71,7 +71,6 @@ public class RegisterAccountPage extends BasePage{
     @FindBy(xpath = "//a[@class='btn btn-primary']")
     public WebElement  successContinue;
 
-
     public void registerAccountForm(String userFirstName, String userLastName,String userEmail, String userTelephone,String userPassword, String userPasswordConfirm){
         BrowserUtils.clickWithJS(firstName);
         firstName.sendKeys(userFirstName);
@@ -82,7 +81,7 @@ public class RegisterAccountPage extends BasePage{
         passwordConfirm.sendKeys(userPasswordConfirm);
         //BrowserUtils.clickWithJS(subScribeYesButton);
         //subScribeYesButton.click();
-       // BrowserUtils.clickWithJS(privacyPolicyCheckbox);
+        //BrowserUtils.clickWithJS(privacyPolicyCheckbox);
         //privacyPolicyCheckbox.click();
 
     }
@@ -97,7 +96,6 @@ public class RegisterAccountPage extends BasePage{
         //Assert.assertEquals(expected,actual);
         String messageText =successMessage.getText();
         Assert.assertEquals("Your Account Has Been Created!",messageText);
-
     }
 
     public void warningMessages(){
